@@ -52,12 +52,12 @@ let  locationManager = CLLocationManager()
     }
     
  - declare this function 
- func handleEvent(forRegion region: CLRegion!, state : String) {
+        func handleEvent(forRegion region: CLRegion!, state : String) {
         // Show an alert if application is active
-        if UIApplication.shared.applicationState == .active {
+           if UIApplication.shared.applicationState == .active {
             guard let message = SetUpAnnotations.note(fromRegionIdentifier: region.identifier) else { return }
             window?.rootViewController?.showAlert(withTitle: nil, message: state + message)
-        } else {
+            } else {
             // Otherwise present a local notification
             guard let message = SetUpAnnotations.note(fromRegionIdentifier: region.identifier) else { return }
             let notification = UILocalNotification()
@@ -69,7 +69,7 @@ let  locationManager = CLLocationManager()
     
     * add this extension  :-
     
-extension AppDelegate: CLLocationManagerDelegate {
+    extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {

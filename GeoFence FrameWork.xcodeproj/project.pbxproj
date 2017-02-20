@@ -18,6 +18,7 @@
 		7127E1911E55C80900D55EB0 /* America.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7127E1901E55C80900D55EB0 /* America.gpx */; };
 		7127E1931E55D74F00D55EB0 /* SetUpAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E1921E55D74F00D55EB0 /* SetUpAnnotations.swift */; };
 		7127E1951E55EF5000D55EB0 /* SetupAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7127E1941E55EF5000D55EB0 /* SetupAnnotation.swift */; };
+		712ACA001E5B5095002E9402 /* fakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AC9FF1E5B5095002E9402 /* fakeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		7127E1901E55C80900D55EB0 /* America.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = America.gpx; sourceTree = "<group>"; };
 		7127E1921E55D74F00D55EB0 /* SetUpAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpAnnotations.swift; sourceTree = "<group>"; };
 		7127E1941E55EF5000D55EB0 /* SetupAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupAnnotation.swift; sourceTree = "<group>"; };
+		712AC9FF1E5B5095002E9402 /* fakeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fakeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				7127E16C1E55B7B500D55EB0 /* AppDelegate.swift */,
 				7127E16E1E55B7B500D55EB0 /* ViewController.swift */,
+				712AC9FF1E5B5095002E9402 /* fakeData.swift */,
 				7127E1921E55D74F00D55EB0 /* SetUpAnnotations.swift */,
 				7127E1941E55EF5000D55EB0 /* SetupAnnotation.swift */,
 				7127E18E1E55C6A100D55EB0 /* Geotification.swift */,
@@ -161,6 +164,7 @@
 				TargetAttributes = {
 					7127E1681E55B7B500D55EB0 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = YKSLKY2D83;
 						ProvisioningStyle = Automatic;
 					};
 					7127E17C1E55B7B600D55EB0 = {
@@ -215,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712ACA001E5B5095002E9402 /* fakeData.swift in Sources */,
 				7127E1951E55EF5000D55EB0 /* SetupAnnotation.swift in Sources */,
 				7127E16F1E55B7B500D55EB0 /* ViewController.swift in Sources */,
 				7127E18D1E55C1A200D55EB0 /* Extensions.swift in Sources */,
@@ -302,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -346,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -359,7 +364,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YKSLKY2D83;
 				INFOPLIST_FILE = "GeoFence FrameWork/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ZeOwls.Nest.GeoFence-FrameWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,7 +378,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YKSLKY2D83;
 				INFOPLIST_FILE = "GeoFence FrameWork/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ZeOwls.Nest.GeoFence-FrameWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,6 +435,7 @@
 				7127E1881E55B7B600D55EB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7127E1891E55B7B600D55EB0 /* Build configuration list for PBXNativeTarget "GeoFence FrameWorkTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +444,7 @@
 				7127E18B1E55B7B600D55EB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

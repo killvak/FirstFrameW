@@ -49,12 +49,19 @@ extension SetUpAnnotations :CLLocationManagerDelegate{
     /**
      The method simply instructs the locationManager to stop monitoring the CLCircularRegion associated with the given geotification
      */
-    func stopMonitoring(geotification: Geotification,locationManager : CLLocationManager) {
+    func stopMonitoring( locationManager : CLLocationManager) {
         for region in locationManager.monitoredRegions {
-            guard let circularRegion = region as? CLCircularRegion, circularRegion.identifier == geotification.identifier else { continue }
+            guard let circularRegion = region as? CLCircularRegion else { continue }
             locationManager.stopMonitoring(for: circularRegion)
         }
     }
 
+    
+  static  func note(fromRegionIdentifier identifier: String) -> String? {
+        let savedItems = UserDefaults.standard.array(forKey: PreferencesKeys.savedItems) as? [NSData]
+        let geotifications = savedItems?.map { NSKeyedUnarchiver.unarchiveObject(with: $0 as Data) as? Geotification }
+        let index = geotifications?.index { $0?.identifier == identifier }
+        return index != nil ? geotifications?[index!]?.note : nil
+    }
 
 }

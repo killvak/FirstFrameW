@@ -9,11 +9,23 @@
 import Foundation
 import MapKit
 
+protocol locationManagerProtocol {
+
+    ///Annotation Frame
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error)    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+//    var setupAnnotation : SetUpAnnotations { get}
+}
+
 class SetUpAnnotations : NSObject {
     
     func setupAnnotationDataOnMap(anotationsArray :  [Geotification] ,mapView :MKMapView  ,locationManager : CLLocationManager ) {
-//            raduis = min(raduis, locationManager.maximumRegionMonitoringDistance)
-        
+
+        if locationManager.monitoredRegions.count > 0 {
+      self.stopMonitoring(locationManager: locationManager)
+        }
       var annotationCount = 0
          print("that is the 1annoationArray data ; \(anotationsArray)")
                 for point in anotationsArray {
@@ -29,10 +41,6 @@ class SetUpAnnotations : NSObject {
         mapView.addAnnotations(anotationsArray)
         self.saveAllGeotifications(annoationArray: anotationsArray )
 
-        
-    }
-    
-    func removeMapAnnotations(mapView:MKMapView) {
         
     }
  
@@ -81,14 +89,19 @@ class SetUpAnnotations : NSObject {
         return annotationView
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-                if overlay is MKCircle {
-        let circlerender = MKCircleRenderer(overlay: overlay)
-        circlerender.strokeColor = UIColor.purple
-        circlerender.lineWidth = 1.0
-        return circlerender
-                }else {
-                    return MKOverlayRenderer(overlay: overlay)
-                }
+    // setUP Annotation fencing status
+    public  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay,circleStrokeColor : UIColor , circleLineWidth: CGFloat ,fillColor : UIColor? , fillColorWithAlphaComponent : CGFloat?) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let circlerender = MKCircleRenderer(overlay: overlay)
+            circlerender.strokeColor = circleStrokeColor
+            circlerender.lineWidth = circleLineWidth
+            if let needFillColor = fillColor , let alpha = fillColorWithAlphaComponent {
+                circlerender.fillColor = needFillColor.withAlphaComponent(alpha)
+            }
+            
+            return circlerender
+        }else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
     }
 }

@@ -41,22 +41,22 @@ apply the  ZeofencingProtocol
     }
         ///Handel the error if occurred
         
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location Manager failed with the following error: \(error)")
     }
     
     
 /////////////////////
-AppDelegate :
+AppDelegate Class :
 
 //declare locationManager Constant
 
-let  locationManager = CLLocationManager()
+     let  locationManager = CLLocationManager()
 
 //Replace your didFinishLaunchingWithOptions  with this to use local Notifications 
 
 
-   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:        [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         locationManager.delegate = self
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
@@ -66,7 +66,9 @@ let  locationManager = CLLocationManager()
     
     
  //declare this function 
- func handleEvent(forRegion region: CLRegion!, state : String) {
+ 
+ 
+     func handleEvent(forRegion region: CLRegion!, state : String) {
         // Show an alert if application is active
         if UIApplication.shared.applicationState == .active {
             guard let message = SetUpAnnotations.note(fromRegionIdentifier: region.identifier) else { return }
@@ -79,13 +81,12 @@ let  locationManager = CLLocationManager()
             notification.soundName = "Default"
             UIApplication.shared.presentLocalNotificationNow(notification)
         }
-    }
+          }
     
     * add this extension  :-
     
     
-    
-extension AppDelegate: CLLocationManagerDelegate {
+    extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {

@@ -19,14 +19,17 @@ apply the  ZeofencingProtocol
 
 *Apply to the ZeofencingProtocol  :
     ///just insert the mapView func parameters to setupAnnotations.mapView func
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return  setupAnnotation.mapView(mapView, viewFor: annotation)
     }
         ///just insert the mapView func parameters to setupAnnotations.mapView func
+        
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return setupAnnotation.mapView(mapView, rendererFor: overlay, circleStrokeColor: UIColor.purple, circleLineWidth: 1.0, fillColor: nil, fillColorWithAlphaComponent: nil)
     }
         ///Handel the error if occurred
+        
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         print("Monitoring failed for region with identifier: \(error.localizedDescription)")
         for monitoredRegion in manager.monitoredRegions {
@@ -34,15 +37,21 @@ apply the  ZeofencingProtocol
         }
     }
         ///Handel the error if occurred
+        
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location Manager failed with the following error: \(error)")
     }
+    
+    
 /////////////////////
 AppDelegate :
 -declare locationManager Constant
+
 let  locationManager = CLLocationManager()
 
 -Replace your didFinishLaunchingWithOptions  with this to use local Notifications 
+
+
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         locationManager.delegate = self
@@ -52,12 +61,12 @@ let  locationManager = CLLocationManager()
     }
     
  - declare this function 
-        func handleEvent(forRegion region: CLRegion!, state : String) {
+ func handleEvent(forRegion region: CLRegion!, state : String) {
         // Show an alert if application is active
-           if UIApplication.shared.applicationState == .active {
+        if UIApplication.shared.applicationState == .active {
             guard let message = SetUpAnnotations.note(fromRegionIdentifier: region.identifier) else { return }
             window?.rootViewController?.showAlert(withTitle: nil, message: state + message)
-            } else {
+        } else {
             // Otherwise present a local notification
             guard let message = SetUpAnnotations.note(fromRegionIdentifier: region.identifier) else { return }
             let notification = UILocalNotification()
@@ -69,7 +78,7 @@ let  locationManager = CLLocationManager()
     
     * add this extension  :-
     
-    extension AppDelegate: CLLocationManagerDelegate {
+extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {

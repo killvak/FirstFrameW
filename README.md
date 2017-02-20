@@ -1,9 +1,11 @@
 # Zeofencing
-First Thing setup user location and show it on Map after that 
-import Zeofencing 
+First Thing setup user location and show it on Map after import the frameWork to your ViewController that :-
+
+    import Zeofencing 
 apply the  ZeofencingProtocol 
   ex : 
-        class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate , ZeofencingProtocol { }
+      
+      class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate , ZeofencingProtocol { }
         
   - define an array of Geotification which is the Map Annotations and declare SetupAnnotationClass 
       ex :    

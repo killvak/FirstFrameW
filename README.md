@@ -13,7 +13,7 @@ apply the  ZeofencingProtocol
         var geotifications : [Geotification] = []
         let setupAnnotation = SetUpAnnotations()
         
-  - don't forget to make the map follow and track the user location:
+  - P.S : don't forget to make the map follow and track the user location:
   
                 mapView.userTrackingMode = MKUserTrackingMode.follow
                 

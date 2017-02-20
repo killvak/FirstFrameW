@@ -7,14 +7,17 @@ apply the  ZeofencingProtocol
         
   - define an array of Geotification which is the Map Annotations and declare SetupAnnotationClass 
       ex :    
+      
         var geotifications : [Geotification] = []
         let setupAnnotation = SetUpAnnotations()
         
   - don't forget to make the map follow and track the user location:
+  
                 mapView.userTrackingMode = MKUserTrackingMode.follow
                 
   -    To set new Annotations to the map use the below function it take the  annotations array (geotifications) and the mapView and the locationManager. 
   ex : 
+  
         setupAnnotation.setupAnnotationDataOnMap( anotationsArray: geotifications, mapView: mapView ,locationManager : locationManager)
 
 *Apply to the ZeofencingProtocol  :
@@ -45,11 +48,12 @@ apply the  ZeofencingProtocol
     
 /////////////////////
 AppDelegate :
--declare locationManager Constant
+
+//declare locationManager Constant
 
 let  locationManager = CLLocationManager()
 
--Replace your didFinishLaunchingWithOptions  with this to use local Notifications 
+//Replace your didFinishLaunchingWithOptions  with this to use local Notifications 
 
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -60,7 +64,8 @@ let  locationManager = CLLocationManager()
         return true
     }
     
- - declare this function 
+    
+ //declare this function 
  func handleEvent(forRegion region: CLRegion!, state : String) {
         // Show an alert if application is active
         if UIApplication.shared.applicationState == .active {
@@ -77,6 +82,8 @@ let  locationManager = CLLocationManager()
     }
     
     * add this extension  :-
+    
+    
     
 extension AppDelegate: CLLocationManagerDelegate {
     

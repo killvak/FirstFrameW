@@ -21,6 +21,8 @@ apply the  ZeofencingProtocol
         setupAnnotation.setupAnnotationDataOnMap( anotationsArray: geotifications, mapView: mapView ,locationManager : locationManager)
 
 *Apply to the ZeofencingProtocol  :
+   
+   
     ///just insert the mapView func parameters to setupAnnotations.mapView func
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -98,5 +100,4 @@ AppDelegate Class :
         if region is CLCircularRegion {
             handleEvent(forRegion: region,state:"see you soon, Best Regards ")
         }
-    }
-}
+    }}

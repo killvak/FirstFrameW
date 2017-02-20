@@ -51,7 +51,7 @@ apply the  ZeofencingProtocol
     
     
 /////////////////////
-AppDelegate Class :
+AppDelegate , Local Notification Setup :
 
 //declare locationManager Constant
 

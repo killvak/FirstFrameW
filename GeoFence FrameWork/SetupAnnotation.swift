@@ -26,10 +26,6 @@ extension SetUpAnnotations :CLLocationManagerDelegate{
     /**
      method to start monitoring a given geotification whenever the user adds one
      - isMonitoringAvailableForClass(_:) determines if the device has the required hardware to support the monitoring of geofences. If monitoring is unavailable, you bail out entirely and alert the user accordingly. showSimpleAlertWithTitle(_:message:viewController) is a helper function in Utilities.swift that takes in a title and message and displays an alert view.
-     - Next, you check the authorization status to ensure that the app has also been granted the required permission to use Location Services. If the app isn’t authorized, it won’t receive any geofence-related notifications.
-     However, in this case, you’ll still allow the user to save the geotification, since Core Location lets you register geofences even when the app isn’t authorized. When the user subsequently grants authorization to the app, monitoring for those geofences will begin automatically.
-     - You create a CLCircularRegion instance from the given geotification using the helper method region(:)->CLCircularRegion.
-     - Finally, you register the CLCircularRegion instance with Core Location for monitoring.
      */
     func startMonitoring(geotification: Geotification,locationManager : CLLocationManager) {
         // 1
